@@ -22,3 +22,10 @@ How to Use the Web App
 - Enter the starting point/depot
 - Enter the delivery point
 - Press process data
+
+Test Input:
+<img width="1440" alt="Screenshot 2024-12-10 at 03 57 08" src="https://github.com/user-attachments/assets/e8e6ab8e-fcd1-4984-89c1-c415e6874561">
+
+
+Test Output:
+<img width="1440" alt="Screenshot 2024-12-10 at 03 57 58" src="https://github.com/user-attachments/assets/43389115-9ee4-44bf-9c90-000d24929e60">
