@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delivery Optimization Demo</title>
+
+    <!-- Bootstrap CSS (via CDN or local file) -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <!-- Your custom styles -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="bg-light">
+    <div class="container py-4">
+      <h1 class="text-center mb-4">Delivery Optimization with Graph Theory</h1>
+
+      <div class="row">
+        <!-- Input Form Column -->
+        <div class="col-md-5 mb-4">
+          <h2 class="h4 text-center mb-3">Input Data</h2>
+          <form id="dataForm" class="p-3 border rounded bg-white">
+            <div class="form-group mb-3">
+              <label for="edges">Edges (Location1,Location2,Distance):</label>
+              <small class="form-text text-muted"
+                >One per line, e.g. "A,B,10"</small
+              >
+              <textarea
+                class="form-control"
+                id="edges"
+                placeholder="A,B,10
+B,C,20
+..."
+              ></textarea>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="blocked">Blocked Roads:</label>
+              <small class="form-text text-muted"
+                >Enter edges, e.g. "A,B" per line</small
+              >
+              <textarea
+                class="form-control"
+                id="blocked"
+                placeholder="A,B
+C,D"
+              ></textarea>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="traffic"
+                >Traffic Data (Location1,Location2,Level):</label
+              >
+              <small class="form-text text-muted"
+                >One per line, level 1-3, e.g. "A,B,2"</small
+              >
+              <textarea
+                class="form-control"
+                id="traffic"
+                placeholder="A,B,1
+B,C,3"
+              ></textarea>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="start">Starting Point (Depot):</label>
+              <input
+                type="text"
+                class="form-control"
+                id="start"
+                placeholder="A"
+              />
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="deliveries">Delivery Points:</label>
+              <small class="form-text text-muted"
+                >One per line, e.g. "C", "D"</small
+              >
+              <textarea
+                class="form-control"
+                id="deliveries"
+                placeholder="C
+D
+E"
+              ></textarea>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-primary w-100"
+              onclick="processData()"
+            >
+              Process Data
+            </button>
+          </form>
+        </div>
+
+        <!-- Output / Visualization Column -->
+        <div class="col-md-7">
+          <h2 class="h4 text-center mb-3">Results</h2>
+          <div
+            id="result"
+            class="border bg-white p-3 mb-3"
+            style="
+              white-space: pre-wrap;
+              font-family: monospace;
+              height: 200px;
+              overflow: auto;
+            "
+          ></div>
+          <canvas
+            id="graphCanvas"
+            width="800"
+            height="600"
+            class="border bg-white mx-auto d-block"
+          ></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/parse.js"></script>
+    <script src="js/graph.js"></script>
+    <script src="js/algorithms.js"></script>
+    <script src="js/visualization.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
