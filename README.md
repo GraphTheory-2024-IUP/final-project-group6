@@ -12,3 +12,13 @@ This application tackle this by using graph theory to:
 - Minimize the overall distance and cost of the network.
 - Ensure that packages can reach their destinations even if certain routes are temporarily blocked.
 
+How to Use the Web App
+<img width="1440" alt="Screenshot 2024-12-10 at 03 45 27" src="https://github.com/user-attachments/assets/0078344d-575c-41aa-a969-22edd4bce6cf">
+<img width="1440" alt="Screenshot 2024-12-10 at 03 46 38" src="https://github.com/user-attachments/assets/59d563cf-384c-489a-9750-53adccd871d9">
+
+- Enter the locations/edges of the delivery with the format (LocationA, LocationB, Weight/Cost)
+- Enter the edges where there's a road block(LocationA, LocationB)
+- Enter the edges where there's a traffic(LocationA, LocationB,Level[*Level goes from 1-3 with 1 as low traffic, 2 as medium, and 3 as high traffic])
+- Enter the starting point/depot
+- Enter the delivery point
+- Press process data
