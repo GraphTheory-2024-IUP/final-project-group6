@@ -19,8 +19,8 @@ This application tackle this by using graph theory to:
 - Ensure that packages can reach their destinations even if certain routes are temporarily blocked.
 
 ## How to Use the Web App
-<img width="1440" alt="Screenshot 2024-12-10 at 03 45 27" src="https://github.com/user-attachments/assets/0078344d-575c-41aa-a969-22edd4bce6cf">
-<img width="1440" alt="Screenshot 2024-12-10 at 03 46 38" src="https://github.com/user-attachments/assets/59d563cf-384c-489a-9750-53adccd871d9">
+<img width="1440" alt="Screenshot 2024-12-10 at 13 57 25" src="https://github.com/user-attachments/assets/222c1656-c91b-4210-9d01-28e1dddc80d0">
+
 
 - Enter the locations/edges of the delivery with the format (LocationA, LocationB, Weight/Cost)
 - Enter the edges where there's a road block(LocationA, LocationB)
@@ -29,14 +29,8 @@ This application tackle this by using graph theory to:
 - Enter the delivery point
 - Press process data
 
-### Test Input:
-
-<img width="1440" alt="Screenshot 2024-12-10 at 03 57 08" src="https://github.com/user-attachments/assets/e8e6ab8e-fcd1-4984-89c1-c415e6874561">
-
-
-### Test Output:
-
-<img width="1440" alt="Screenshot 2024-12-10 at 03 57 58" src="https://github.com/user-attachments/assets/43389115-9ee4-44bf-9c90-000d24929e60">
+### Test Input and Output:
+<img width="1440" alt="Screenshot 2024-12-10 at 14 02 54" src="https://github.com/user-attachments/assets/f3e0b774-7621-45ed-b8f1-4555fd165de9">
 
 ## Test Result Summarization and Analysis
 Graph:
