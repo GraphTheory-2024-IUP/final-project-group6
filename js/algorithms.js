@@ -1,4 +1,4 @@
-// Dijkstra's shortest path
+// Dijkstra's shortest path with traffic consideration
 function dijkstra(graph, source) {
   let dist = {};
   let prev = {};
@@ -24,7 +24,9 @@ function dijkstra(graph, source) {
 
     for (let edge of graph.getNeighbors(u)) {
       if (edge.blocked) continue;
-      let alt = dist[u] + edge.dist;
+      // Incorporate traffic level into the cost
+      let cost = edge.dist * edge.traffic;
+      let alt = dist[u] + cost;
       if (alt < dist[edge.node]) {
         dist[edge.node] = alt;
         prev[edge.node] = u;
@@ -35,16 +37,17 @@ function dijkstra(graph, source) {
   return { dist, prev };
 }
 
-// Prim's MST
+// Prim's MST with traffic consideration
 function primMST(graph) {
   let start = [...graph.nodes][0];
   let mstEdges = [];
   let inSet = new Set([start]);
   let edges = [];
 
+  // Push edges from start with their traffic-adjusted cost
   for (let edge of graph.getNeighbors(start)) {
     if (!edge.blocked) {
-      edges.push({ u: start, v: edge.node, dist: edge.dist });
+      edges.push({ u: start, v: edge.node, dist: edge.dist * edge.traffic });
     }
   }
 
@@ -54,18 +57,22 @@ function primMST(graph) {
     if (!inSet.has(e.v)) {
       inSet.add(e.v);
       mstEdges.push(e);
+      // Add new edges from this node
       for (let edge of graph.getNeighbors(e.v)) {
         if (!edge.blocked && !inSet.has(edge.node)) {
-          edges.push({ u: e.v, v: edge.node, dist: edge.dist });
+          let cost = edge.dist * edge.traffic;
+          edges.push({ u: e.v, v: edge.node, dist: cost });
         }
       }
     }
   }
 
+  // Note: We stored MST edges with adjusted cost in dist, but it's fine.
+  // The MST edges returned still represent the correct MST with traffic considered.
   return mstEdges;
 }
 
-// Connectivity check (BFS)
+// Connectivity check (BFS) - unchanged
 function isReachable(graph, start, targets) {
   let visited = new Set();
   let queue = [start];
@@ -84,7 +91,7 @@ function isReachable(graph, start, targets) {
   return true;
 }
 
-// Brute-force TSP
+// Brute-force TSP with traffic considered through Dijkstra
 function tsp(graph, start, deliveries) {
   function permute(arr) {
     if (arr.length <= 1) return [arr];
@@ -108,15 +115,18 @@ function tsp(graph, start, deliveries) {
     let currentDist = 0;
     let valid = true;
 
+    // From start to first delivery
     currentDist += distFromStart[route[0]];
     if (!isFinite(currentDist)) valid = false;
 
+    // Between deliveries
     for (let i = 0; i < route.length - 1 && valid; i++) {
       let { dist } = dijkstra(graph, route[i]);
       currentDist += dist[route[i + 1]];
       if (!isFinite(dist[route[i + 1]])) valid = false;
     }
 
+    // Return to start
     if (valid) {
       let { dist: distBack } = dijkstra(graph, route[route.length - 1]);
       currentDist += distBack[start];
