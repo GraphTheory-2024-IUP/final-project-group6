@@ -72,7 +72,7 @@ function primMST(graph) {
   return mstEdges;
 }
 
-// Connectivity check (BFS) - unchanged
+// Connectivity check (BFS)
 function isReachable(graph, start, targets) {
   let visited = new Set();
   let queue = [start];
