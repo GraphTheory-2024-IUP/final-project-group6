@@ -1,3 +1,9 @@
+<p align="center"><b>EF234304 - Graph Theory 2024/2025</b><br>Institut Teknologi Sepuluh Nopember</p>
+<br>
+<p align="center"><img src="https://i.ibb.co.com/2gLgWws/image.png" style="transform: scale(0.5);"></p>
+<br>
+<p align="center">Project by <a href="https://github.com/samuelljk">Samuel</a>, <a href="https://github.com/Zefanya211004">Zefanya</a>,and <a href="https://github.com/IhsanRahadian">Ihsan</a></p>
+
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/0_yE0bFY)
 
 # Dynamic Package Delivery Optimization in Urban Areas
